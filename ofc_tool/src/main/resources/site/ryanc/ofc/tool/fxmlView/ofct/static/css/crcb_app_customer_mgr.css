@@ -1,0 +1,72 @@
+/*右侧 - 客户管理*/
+.customer_mgr_div{display:none;}
+.customer_mgr_data{margin:20px 0px 0px 0px;}
+.customer_type_title{font-family:'KaiTi';width: 140px;margin: -31px 0px 10px 1065px;}
+.current_position{margin: -31px 0px 8px 990px;width: 25px;height: 25px;background-image: url('../img/current_position.png');background-repeat:no-repeat;background-size:100% 100%;}
+
+/*p_姓名*/
+.p_name_div{margin:0px 0px 0px -350px;}
+.p_name_div input{width:180px;margin: 0px 0px 0px -10px;}
+
+/*p_性别*/
+.p_gender_div{margin:-40px 0px 0px 65px;}
+.p_gender_div label{margin-top:7px}
+.p_gender_div select{width:110px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/*p_婚姻情况*/
+.p_marital_div{margin:-40px 0px 0px 386px}
+.p_marital_div label{margin-top:7px}
+.p_marital_div select{margin-top: 2px;width:100px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+
+/*p_电话*/
+.p_tel_div{margin:5px 0px 0px -350px;}
+.p_tel_div label{margin-top:7px}
+.p_tel_div input{width:180px;margin: 0px 0px 0px -10px;}
+
+/*p_身份证*/
+.p_ID_div{margin:-38px 0px 0px 200px}
+.p_ID_div label{margin-top:7px}
+.p_ID_div input{width:290px;margin: 0px 0px 0px -6px;}
+
+
+/*p_身份证地址*/
+.p_add_div{margin:0px 0px 0px -47px}
+.p_add_div label{margin-top:7px}
+.p_add_div input{width:515px;margin: 0px 0px 0px -6px;}
+
+/*p_职业*/
+.p_job_div{margin:2px 0px 0px -241px}
+.p_job_div label{margin-top:7px}
+.p_job_div input{width:240px;margin: 0px 0px 0px -5px;}
+
+/*p_月收入*/
+.p_m_in_div{margin:-38px 0px 0px 308px}
+.p_m_in_div label{margin-top:8px}
+.p_m_in_div input{width:185px;margin: 0px 0px 0px -5px;}
+
+/*p_年收入*/
+.p_y_in_div{margin:5px 0px 0px -391px}
+.p_y_in_div label{margin-top:7px}
+.p_y_in_div input{width:120px;margin: 0px 0px 0px -6px;}
+
+/*p_总资产*/
+.p_total_asset_div{margin:-38px 0px 0px 14px}
+.p_total_asset_div label{margin-top:7px}
+.p_total_asset_div input{width:120px;margin: 0px 0px 0px -6px;}
+
+/*p_总负债*/
+.p_total_debt_div{margin:-38px 0px 0px 358px}
+.p_total_debt_div label{margin-top:7px}
+.p_total_debt_div input{width:130px;margin: 0px 0px 0px 0px;}
+
+/*p_净资产*/
+.p_net_asset_div{margin:4px 0px 0px -342px}
+.p_net_asset_div label{margin-top:7px}
+.p_net_asset_div input{width:185px;margin: 0px 0px 0px -6px;}
+
+/*p_上年家庭净资产*/
+.p_last_year_family_net_asset_div{margin:-38px 0px 0px 208px}
+.p_net_assetp_last_year_family_net_asset_div_div label{margin-top:7px}
+.p_last_year_family_net_asset_div input{width:240px;margin: 0px 0px 0px -6px;}
+

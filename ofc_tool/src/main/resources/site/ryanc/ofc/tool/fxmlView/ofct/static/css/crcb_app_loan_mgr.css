@@ -1,0 +1,141 @@
+
+/* 右侧 - 贷款管理 */
+.loan_mgr_div{display:none;}
+.loan_mgr_data{margin:5px 0px 0px 0px;}
+.loan_mgr_div div[class="ac_btn"]{padding:0px;margin:-40px 0px 0px 985px;}
+.loan_mgr_div button[class="create-btn"]{margin:10px 0px 0px 100px;}
+
+#loan_to_be_dev {width: 500px;height: 260px;margin-top: 55px;}
+/** ---类型筛选------------------------------------------------------------------- */
+/* 客户类型 - select */
+.loan_customer_type_div{margin:0px 0px 0px -480px;}
+.loan_customer_type_div label{margin-top:7px}
+.loan_customer_type_div select{width:90px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* 保证类型 - select */
+.loan_assure_type_div{margin:-40px 0px 0px -145px;}
+.loan_assure_type_div label{margin-top:7px}
+.loan_assure_type_div select{margin-top:3px;width:90px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* 贷款方式 - select */
+.loan_mode_div{margin:-40px 0px 0px 190px;}
+.loan_mode_div label{margin-top:7px}
+.loan_mode_div select{margin-top:5px;width:90px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* 支付方式 - select */
+.loan_pay_mode_div{margin:-40px 0px 0px 425px;}
+.loan_pay_mode_div label{margin-top:7px}
+.loan_pay_mode_div select{ margin-top:7px;width:90px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/** ---贷款信息------------------------------------------------------------------- */
+/* 还款方式 */
+.loan_repay_mode_div{margin:0px 0px 0px -480px;}
+.loan_repay_mode_div label{margin-top:7px}
+.loan_repay_mode_div select{width:100px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* 还款人 */
+.loan_repay_person_div{margin:-40px 0px 0px -110px}
+.loan_repay_person_div label{margin-top:7px}
+.loan_repay_person_div input{width:90px;margin: 2px 0px 0px -40px;}
+
+/* 借款人卡号 */
+.loan_person_carno_div{margin:-40px 0px 0px 255px}
+.loan_person_carno_div label{margin-top:7px}
+.loan_person_carno_div input{width:240px;margin: 4px 0px 0px -10px;}
+
+/* 借款用途 */
+.loan_for_use_div{margin:5px 0px 0px -445px}
+.loan_for_use_div label{margin-top:10px}
+.loan_for_use_div input{width:90px;margin: 2px 0px 0px -35px;}
+
+/* 还款来源 */
+.loan_repay_src_div{margin:-38px 0px 0px -120px}
+.loan_repay_src_div label{margin-top:10px}
+.loan_repay_src_div input{width:90px;margin: 2px 0px 0px -35px;}
+
+/* 贷款金额大写 */
+.loan_amount_upcase_div{margin:-40px 0px 0px 255px}
+.loan_amount_upcase_div label{margin-top:10px}
+.loan_amount_upcase_div input{width:230px;margin: 5px 0px 0px -10px;}
+
+/* 贷款金额小写 */
+.loan_amount_lowcase_div{margin:0px 0px 0px -429px}
+.loan_amount_lowcase_div label{margin-top:10px}
+.loan_amount_lowcase_div input{width:100px;margin: 5px 0px 0px -10px;}
+
+/* 总授信金额 */
+.loan_total_credit_amount_div{margin:-38px 0px 0px 20px}
+.loan_total_credit_amount_div label{margin-top:10px}
+.loan_total_credit_amount_div input{width:100px;margin: 5px 0px 0px -10px;}
+
+/* 贷款利率加点 */
+.loan_rate_plus_point_div{margin:-38px 0px 0px 382px}
+.loan_rate_plus_point_div label{margin-top:10px}
+.loan_rate_plus_point_div input{width:100px;margin: 5px 0px 0px -10px;}
+
+/* 贷款期限 */
+.loan_term_div{margin:5px 0px 0px -428px}
+.loan_term_div label{margin-top:10px}
+.loan_term_div input{width:90px;margin: 2px 0px 0px -35px;}
+
+/* 贷款起始日期 */
+.loan_start_date_div{margin:-38px 0px 0px -45px}
+.loan_start_date_div label{margin-top:10px}
+.loan_start_date_div input{width:120px;margin: 2px 0px 0px -10px;}
+
+/* 贷款终止日期 */
+.loan_end_date_div{margin:-38px 0px 0px 357px}
+.loan_end_date_div label{margin-top:10px}
+.loan_end_date_div input{width:120px;margin: 2px 0px 0px -10px;}
+
+/* 贷款月利率 */
+.loan_m_rate_div{margin:0px 0px 0px -429px}
+.loan_m_rate_div label{margin-top:10px}
+.loan_m_rate_div input{width:100px;margin: 5px 0px 0px -10px;}
+
+/* 主合同号 */
+.loan_main_contractno_div{margin:-38px 0px 0px 30px}
+.loan_main_contractno_div label{margin-top:10px}
+.loan_main_contractno_div input{width:120px;margin: 2px 0px 0px -10px;}
+
+/* 从合同号 */
+.loan_sub_contractno_div{margin:-38px 0px 0px 384px}
+.loan_sub_contractno_div label{margin-top:10px}
+.loan_sub_contractno_div input{width:120px;margin: 2px 0px 0px -10px;}
+
+/* 保证人姓名 */
+.loan_assure_person_div{margin:0px 0px 0px -445px}
+.loan_assure_person_div label{margin-top:10px}
+.loan_assure_person_div input{width:90px;margin: 2px 0px 0px -20px;}
+
+/* 保证人性别型 - select */
+.loan_assure_person_gender_div{margin:-40px 0px 0px -120px;}
+.loan_assure_person_gender_div label{margin-top:10px}
+.loan_assure_person_gender_div select{margin-top:3px;width:90px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* 保证人住址 */
+.loan_person_address_div{margin:-38px 0px 0px 280px}
+.loan_person_address_div label{margin-top:7px}
+.loan_person_address_div input{width:215px;margin: 4px 0px 0px -30px;}
+
+/* 申请贷款时间 */
+.loan_apply_time_div{margin:0px 0px 0px -340px}
+.loan_apply_time_div label{margin-top:10px}
+.loan_apply_time_div input{width:200px;margin: 2px 0px 0px -10px;}
+
+/* 贷审会成员数量 */
+.loan_review_person_num_div{margin:-38px 0px 0px 262px}
+.loan_review_person_num_div label{margin-top:9px}
+.loan_review_person_num_div input{width:200px;margin: 4px 0px 0px -30px;}
+
+/* 申请贷款时间 */
+.loan_approve_time_div{margin:0px 0px 0px -340px}
+.loan_approve_time_div label{margin-top:10px}
+.loan_approve_time_div input{width:200px;margin: 2px 0px 0px -10px;}
+
+/* 贷审会成员数量 */
+.loan_contract_date_div{margin:-38px 0px 0px 280px}
+.loan_contract_date_div label{margin-top:9px}
+.loan_contract_date_div input{width:200px;margin: 4px 0px 0px -30px;}
+
+

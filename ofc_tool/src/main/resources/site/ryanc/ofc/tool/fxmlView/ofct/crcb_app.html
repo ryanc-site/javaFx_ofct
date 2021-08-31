@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ofct_crcb</title>
+  <link rel="stylesheet" type="text/css" href="static/css/crcb_app.css">
+  <link rel="stylesheet" type="text/css" href="static/css/crcb_app_customer_mgr.css">
+  <link rel="stylesheet" type="text/css" href="static/css/crcb_app_loan_mgr.css">
+  <script src="static/js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="static/js/crcb_app_customer_mgr.js"></script>
+  <script type="text/javascript" src="static/js/crcb_app_loan_mgr.js"></script>
+</head>
+<body >
+<center>
+  <div id="top_cntr" >
+    <div id="cntr" >
+
+      <!--<editor-fold desc="左侧菜单">-->
+      <div id="div_left_menu"  >
+        <div id="div_left_top"></div>
+        <hr>
+        <div id="div_left_content">
+
+          <!--<editor-fold desc="菜单 - 客户管理">-->
+          <div class="menu_btn">
+            <div class="menu_btn_ico customer"></div>
+            <label class="menu_btn_text" sub_display="off" onclick="javascript:left_menu_click('customer',this);"> &nbsp;&nbsp;客户管理 < </label>
+          </div>
+          <div id="customer_sub" style="display:none;">
+            <div class="menu_customer_sub_btn">
+              <label class="menu_btn_text" onclick="javascript:customer_mgr('ent');">企业客户</label>
+            </div>
+            <div class="menu_customer_sub_btn">
+              <label class="menu_btn_text" onclick="javascript:customer_mgr('person');">个人客户</label>
+            </div>
+          </div>
+          <!--</editor-fold>-->
+
+          <!--<editor-fold desc="菜单 - 贷款管理">-->
+          <div class="menu_btn" onclick="javascript:left_menu_click('loanmgr');">
+            <div class="menu_btn_ico loanmgr" onclick="javascript:left_menu_click('loanmgr');"></div>
+            <label class="menu_btn_text" onclick="javascript:left_menu_click('loanmgr');"> &nbsp;&nbsp;贷款管理 < </label>
+          </div>
+          <!--</editor-fold>-->
+
+          <!--<editor-fold desc="菜单 - 报表优化">-->
+          <div class="menu_btn" onclick="javascript:left_menu_click('report');">
+            <div class="menu_btn_ico report" onclick="javascript:left_menu_click('report');"></div>
+            <label class="menu_btn_text" onclick="javascript:left_menu_click('report');"> &nbsp;&nbsp;报表优化 < </label>
+          </div>
+          <!--</editor-fold>-->
+
+          <!--<editor-fold desc="菜单 - 贷款流程">-->
+          <div class="menu_btn" onclick="javascript:left_menu_click('loanprocess');">
+            <div class="menu_btn_ico loanprocess" onclick="javascript:left_menu_click('loanprocess');"></div>
+            <label class="menu_btn_text" onclick="javascript:left_menu_click('loanprocess');"> &nbsp;&nbsp;贷款流程 < </label>
+          </div>
+          <!--</editor-fold>-->
+
+        </div>
+        <hr>
+        <div id="div_left_bottom">
+          <div id="CopyRight"><span class="cp_btom_noclr">© <span class="cp_btom">2021</span> 沧州银行</span></div>
+          <div id="btom_date" class="cp_btom_noclr">
+            <div class="sp_date_ico"></div>
+            <div class="sp_date_font" id="div_date_text">xxxx年x月xx日</div>
+          </div>
+        </div>
+      </div>
+      <!--</editor-fold>-->
+
+      <!--<editor-fold desc="分割区">-->
+      <div id="div_Partition"></div>
+      <!--</editor-fold>-->
+
+      <!--<editor-fold desc="右侧内容">-->
+      <div id="div_right_content">
+
+        <!--<editor-fold desc="to_be_dev">-->
+        <div id="to_be_dev" class="to_be_dev" >
+          <span class="to_be_dev_text" >功能开发中，敬请期待...</span>
+        </div>
+        <!--</editor-fold>-->
+
+        <!--<editor-fold desc="数据 - 客户管理">-->
+        <!--<editor-fold desc="操作结果">-->
+        <div class="tips"></div>
+        <!--</editor-fold>-->
+
+        <!--<editor-fold desc="企业 - 客户管理">-->
+        <div id="customer_mgr_div_ent" class="customer_mgr_div">
+          <!--<editor-fold desc="数据表格">-->
+          <div  class="div_title" align="center"><span>&nbsp;客户管理</span></div>
+          <hr>
+          <div id="customer_mgr_ac_btn" class="ac_btn" align="left">
+            <button class="create-btn" onclick="show_mask_layer('customer_mgr','ent');">新&nbsp;&nbsp;&nbsp;建</button> &nbsp; &nbsp; &nbsp;
+            <!--<button id="export_data" class="btn-ac" >导出</button>-->
+          </div>
+          <div class="current_position"></div>
+          <div class="customer_type_title">
+            <label>企业客户</label>
+          </div>
+
+
+          <div style="width:98%">
+            <table>
+              <tr>
+                <th>序号</th>
+                <th>公司</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>婚姻情况</th>
+                <th>操作</th>
+              </tr>
+              <tr>
+                <td colspan="8" align="center">暂无数据</td>
+              </tr>
+            </table>
+          </div>
+          <!--</editor-fold>-->
+          <!--<editor-fold desc="添加数据">-->
+          <div id="customer_mgr_Form_ent" class="modal" align="center">
+            <!-- 弹窗内容 -->
+            <div class="modal-content" >
+              <span class="close" onclick="hide_mask_layer('customer_mgr')">&times;</span>
+              <form method="post" class="smart-green">
+                <label><span>姓名 :</span>
+                  <input id="ent_name" type="text" name="title"/>
+                  <div id="ent_name_err" class="error-msg"></div>
+                </label>
+
+                <label><span>性别 :</span>
+                  <select id="ent_gender"  style="width: 513px;">
+                    <option value="-1">--请选择--</option>
+                    <option value="1">男</option>
+                    <option value="0">女</option>
+                    <option value="2">其他</option>
+                  </select>
+                  <div id="ent_ender_err" class="error-msg"></div>
+                </label>
+
+                <label><span>年龄 :</span>
+                  <input id="ent_age" type="text" name="age"/>
+                  <div id="ent_age_err" class="error-msg"></div>
+                </label>
+
+                <label><span>身份证 :</span>
+                  <input id="ent_identity" type="text" name="identity" />
+                  <div id="ent_identity_err" class="error-msg"></div>
+                </label>
+
+                <label><span>地址 :</span>
+                  <input id="ent_address" type="text" name="marital"/>
+                  <div id="ent_address_err" class="error-msg"></div>
+                </label>
+
+                <label><span>婚姻情况 :</span>
+                  <select id="ent_marital"  style="width: 513px;">
+                    <option value="-1">--请选择--</option>
+                    <option value="1">已婚</option>
+                    <option value="0">未婚</option>
+                    <option value="2">其他</option>
+                  </select>
+                  <div id="ent_marital_err" class="error-msg"></div>
+                </label>
+
+                <label><input type="button" class="button" onclick="javascript:dosubmit()" value="确定"/></label>
+                <input type="hidden" name="csrfmiddlewaretoken" value="SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa"/>
+              </form>
+            </div>
+
+          </div>
+          <!--</editor-fold>-->
+        </div>
+        <!--</editor-fold>-->
+
+        <!--<editor-fold desc="个人 - 客户管理">-->
+        <div id="customer_mgr_div_person" class="customer_mgr_div">
+          <!--<editor-fold desc="数据表格">-->
+          <div class="div_title" align="center"><span>&nbsp;客户管理</span></div>
+          <hr>
+          <div class="ac_btn" align="left">
+            <button id="customer_mgr_create_app" class="create-btn" onclick="show_mask_layer('customer_mgr','person');">新&nbsp;增</button> &nbsp; &nbsp; &nbsp;
+            <!--<button id="export_data" class="btn-ac" >导出</button>-->
+          </div>
+          <div class="current_position"></div>
+          <div class="customer_type_title">
+            <label>个人客户</label>
+          </div>
+
+
+          <div class="customer_mgr_data" style="width:98%">
+            <table id="person_customer_table_data">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>电话</th>
+                <th>婚姻情况</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tr>
+                <td colspan="8" align="center">暂无数据</td>
+              </tr>
+            </table>
+          </div>
+          <!--</editor-fold>-->
+          <!--<editor-fold desc="添加数据">-->
+          <div id="customer_mgr_Form_person" class="modal" align="center">
+            <div class="modal-content" >
+              <span class="close" onclick="hide_mask_layer('customer_mgr')">&times;</span>
+              <form method="post" class="smart-green">
+                <!--<editor-fold desc="个人 - 客户管理 - 基本信息">-->
+                <div class="info_title">
+                  <label>基本信息</label>
+                  <hr>
+                </div>
+                <div data_type="input" class="p_name_div" style="width:240px" >
+                  <label>姓名 :</label>
+                  <input id="p_name" type="text" name="p_name" value="贾斯汀"/>
+                </div>
+                <div data_type="input" class="p_gender_div" style="width:165px" >
+                  <label>性&nbsp;&nbsp;&nbsp;&nbsp;别 :</label>
+                  <select id="p_gender" name="p_gender" >
+                    <option value="-1">--请选择--</option>
+                    <option value="1" selected>男</option>
+                    <option value="0">女</option>
+                  </select>
+                </div>
+                <div data_type="input" class="p_marital_div" style="width:170px" >
+                  <label>婚姻情况 :</label>
+                  <select id="p_marital" name="p_marital" >
+                    <option value="-1">--请选择--</option>
+                    <option value="1">已婚</option>
+                    <option value="0" selected>未婚</option>
+                    <option value="2">离异</option>
+                    <option value="3">丧偶</option>
+                  </select>
+                </div>
+                <div data_type="input" class="p_tel_div" style="width:240px" >
+                  <label>电话 :</label>
+                  <input id="p_tel"  type="text" name="p_tel" value="13788888888" />
+                </div>
+                <div data_type="input" class="p_ID_div" style="width:360px" >
+                  <label>身份证 :</label>
+                  <input id="p_id" type="text" name="p_id" value="520001199305200520" />
+                </div>
+                <!--</editor-fold>-->
+                <br/>
+                <!--<editor-fold desc="个人 - 客户管理 - 地址信息">-->
+                <div class="info_title">
+                  <label>地址信息</label>
+                  <hr>
+                </div>
+                <div data_type="input" class="p_add_div" style="width:605px;" >
+                  <label>身份证地址 :</label>
+                  <input id="p_id_add"  type="text" name="p_id_add" value="北京" />
+                </div>
+                <div data_type="input" class="p_add_div" style="width:605px;">
+                  <label>户&nbsp;籍&nbsp;地&nbsp;址 &nbsp;:</label>
+                  <input id="p_hukou_add"  type="text" name="p_hukou_add" value="上海" />
+                </div>
+                <div data_type="input" class="p_add_div" style="width:605px;">
+                  <label>居&nbsp;住&nbsp;地&nbsp;址 &nbsp;:</label>
+                  <input id="p_dwell_add" type="text" name="p_dwell_add" value="广州" />
+                </div>
+                <div data_type="input" class="p_add_div" style="width:605px;">
+                  <label>工&nbsp;作&nbsp;地&nbsp;址&nbsp; :</label>
+                  <input id="p_work_add"  type="text" name="p_work_add" value="深圳" />
+                </div>
+                <!--</editor-fold>-->
+                <br/>
+                <!--<editor-fold desc="个人 - 客户管理 - 收入信息">-->
+                <div class="info_title">
+                  <label>收入信息</label>
+                  <hr>
+                </div>
+                <div data_type="input" class="p_job_div" style="width:350px;" >
+                  <label>职业（行业） :</label>
+                  <input id="p_job" type="text" name="p_job" value="新时代农名工" />
+                </div>
+                <div data_type="input" class="p_m_in_div" style="width:250px;">
+                  <label>月收入 :</label>
+                  <input id="p_m_in" type="text" name="p_m_in" value="100"/>
+                </div>
+                <div data_type="input" class="p_y_in_div" style="width:200px;">
+                  <label>年收入 :</label>
+                  <input id="p_y_in" type="text" name="p_y_in" value="1000" />
+                </div>
+                <div data_type="input" class="p_total_asset_div" style="width:200px;">
+                  <label>总资产 :</label>
+                  <input id="p_total_asset" type="text" name="p_total_asset" value="500" />
+                </div>
+                <div data_type="input" class="p_total_debt_div" style="width:200px;">
+                  <label>总负债 :</label>
+                  <input id="p_total_debt" type="text" name="p_total_debt" value="1000000" />
+                </div>
+                <div data_type="input" class="p_net_asset_div" style="width:250px;">
+                  <label>净资产 :</label>
+                  <input id="p_net_asset" type="text" name="p_net_asset" value="-100000" />
+                </div>
+                <div data_type="input" class="p_last_year_family_net_asset_div" style="width:350px;">
+                  <label>上年家庭净收入 :</label>
+                  <input id="p_last_year_family_net_asset" type="text" name="p_last_year_family_net_asset" value="1" />
+                </div>
+                <!--</editor-fold>-->
+                <label><input type="button" class="button" onclick="javascript:add_customer('person')" value="提交"/></label>
+              </form>
+            </div>
+
+          </div>
+          <!--</editor-fold>-->
+        </div>
+        <!--</editor-fold>-->
+
+        <!--</editor-fold>-->
+
+        <!--<editor-fold desc="数据 - 贷款管理">-->
+        <div id="loan_mgr_div" class="loan_mgr_div">
+
+          <!--<editor-fold desc="数据表格">-->
+          <div id="loan_mgr_title" class="div_title" align="center"><span>&nbsp;贷款管理</span></div>
+          <div id="loan_mgr_ac_btn" class="ac_btn" align="left">
+            <button id="loan_mgr_create_app" class="create-btn" onclick="show_mask_layer('loan_mgr','none');">新&nbsp;增</button> &nbsp; &nbsp; &nbsp;
+          </div>
+          <hr>
+          <div class="loan_mgr_data" style="width:98%">
+            <table id="loan_mgr_table_data">
+              <thead>
+              <tr>
+                <th></th>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>金额</th>
+                <th>利率</th>
+                <th>期限（月）</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tr>
+                <td colspan="8" align="center">暂无数据</td>
+              </tr>
+            </table>
+          </div>
+          <!--</editor-fold>-->
+          <!--<editor-fold desc="添加数据">-->
+          <div id="loan_mgr_Form" class="modal" align="center" >
+            <div class="modal-content" >
+
+              <span class="close" onclick="hide_mask_layer('loan_mgr')">&times;</span>
+              <form method="post" class="smart-green">
+                <!--<editor-fold desc="贷款管理 - 个人 -> 保证 -> 一次性 -> 自主支付">-->
+                <!--<editor-fold desc="贷款管理 - 类别筛选">-->
+                <div class="info_title">
+                  <label>类别筛选</label>
+                  <hr>
+                </div>
+                <div data_type="input" class="loan_customer_type_div" style="width:165px" >
+                  <label>客户类型 :</label>
+                  <select id="loan_customer_type" name="loan_customer_type" >
+                    <option value="-1">--请选择--</option>
+                    <option value="1" selected >个人</option>
+                    <option value="0">公司</option>
+                  </select>
+                </div>
+                <div data_type="input" class="loan_assure_type_div" style="width:165px" >
+                  <label>保证方式 :</label>
+                  <select id="loan_assure_type" name="loan_assure_type" >
+                    <option value="-1">--请选择--</option>
+                    <option value="1" >抵押</option>
+                    <option value="2" selected>保证</option>
+                    <option value="3">信用</option>
+                    <option value="4">质押</option>
+                  </select>
+                </div>
+                <div data_type="input" class="loan_mode_div" style="width:165px" >
+                  <label>贷款方式 :</label>
+                  <select id="loan_mode" name="loan_mode" >
+                    <option value="-1">--请选择--</option>
+                    <option value="1" selected>一次性</option>
+                    <option value="2">循环</option>
+                    <option value="3">特色产品</option>
+                  </select>
+                </div>
+                <div data_type="input" class="loan_pay_mode_div" style="width:165px" >
+                  <label>支付方式 :</label>
+                  <select id="loan_pay_mode" name="loan_pay_mode" >
+                    <option value="-1">--请选择--</option>
+                    <option value="1" selected>自主支付</option>
+                    <option value="2">委托支付</option>
+                  </select>
+                </div>
+                <div style="width: 660px;height: 50px;margin-top:10px">
+                  <label><input type="button" class="button" onclick="javascript:loan_type_sure()" value="确定"/></label>
+                </div>
+                <!--</editor-fold>-->
+                <div id="loan_person_assure_one-time_self-payment" style="display: none;">
+                  <br/>
+                  <!--<editor-fold desc="贷款管理 - 贷款信息">-->
+                  <div class="info_title">
+                    <label>贷款信息</label>
+                    <hr>
+                  </div>
+                  <div data_type="input" class="loan_repay_mode_div" style="width:165px" >
+                    <label>还款方式 :</label>
+                    <select id="loan_repay_mode" name="loan_repay_mode" >
+                      <option value="-1">--请选择--</option>
+                      <option value="1" selected>等额本息</option>
+                      <option value="2">等额本金</option>
+                      <option value="3">按月结息</option>
+                      <option value="4">到期还本、计划还款</option>
+                    </select>
+                  </div>
+                  <div data_type="input" class="loan_repay_person_div" style="width:200px;">
+                    <label>借款人 :</label>
+                    <input id="loan_repay_person" type="text" name="loan_repay_person" value="贾斯汀" />
+                  </div>
+                  <div data_type="input" class="loan_person_carno_div" style="width:340px;">
+                    <label>借款人卡号 :</label>
+                    <input id="loan_person_carno" type="text" name="loan_person_carno" value="6228888888888888888" />
+                  </div>
+                  <div data_type="input" class="loan_for_use_div" style="width:200px;">
+                    <label>借款用途 :</label>
+                    <input id="loan_for_use" type="text" name="loan_for_use" value="买iphone13" />
+                  </div>
+                  <div data_type="input" class="loan_repay_src_div" style="width:200px;">
+                    <label>还款来源 :</label>
+                    <input id="loan_repay_src" type="text" name="loan_repay_src" value="拾荒" />
+                  </div>
+                  <div data_type="input" class="loan_amount_upcase_div" style="width:340px;">
+                    <label>贷款金额大写 :</label>
+                    <input id="loan_amount_upcase" type="text" name="loan_amount_upcase" value="壹万叁仟元" />
+                  </div>
+                  <div data_type="input" class="loan_amount_lowcase_div" style="width:215px;">
+                    <label>贷款金额小写 :</label>
+                    <input id="loan_amount_lowcase" type="text" name="loan_amount_lowcase" value="13000" />
+                  </div>
+                  <div data_type="input" class="loan_total_credit_amount_div" style="width:215px;">
+                    <label>总授信金额 :</label>
+                    <input id="loan_total_credit_amount" type="text" name="loan_total_credit_amount" value="13000" />
+                  </div>
+                  <div data_type="input" class="loan_rate_plus_point_div" style="width:215px;">
+                    <label>贷款利率加点 :</label>
+                    <input id="loan_rate_plus_point" type="text" name="loan_rate_plus_point" value="1.0%" />
+                  </div>
+                  <div data_type="input" class="loan_term_div" style="width:215px;">
+                    <label>贷款期限 :</label>
+                    <input id="loan_term" type="text" name="loan_term" value="6" />
+                  </div>
+                  <div data_type="input" class="loan_start_date_div" style="width:245px;">
+                    <label>贷款起始日期 :</label>
+                    <input id="loan_start_date" type="text" name="loan_start_date" value="2021年10月28日" />
+                  </div>
+                  <div data_type="input" class="loan_end_date_div" style="width:245px;">
+                    <label>贷款终止日期 :</label>
+                    <input id="loan_end_date" type="text" name="loan_end_date" value="2022年4月28日" />
+                  </div>
+                  <div data_type="input" class="loan_m_rate_div" style="width:215px;">
+                    <label>贷款月利率 :</label>
+                    <input id="loan_m_rate" type="text" name="loan_m_rate" value="6.5%" />
+                  </div>
+                  <div data_type="input" class="loan_main_contractno_div" style="width:215px;">
+                    <label>主合同号 :</label>
+                    <input id="loan_main_contractno" type="text" name="loan_main_contractno" value="ht-202108281" />
+                  </div>
+                  <div data_type="input" class="loan_sub_contractno_div" style="width:215px;">
+                    <label>从合同号 :</label>
+                    <input id="loan_sub_contractno" type="text" name="loan_sub_contractno" value="20210828202031" />
+                  </div>
+                  <!--</editor-fold>-->
+                  <br/>
+                  <!--<editor-fold desc="贷款管理 - 保证信息">-->
+                    <div class="info_title">
+                      <label>保证信息</label>
+                      <hr>
+                    </div>
+                    <div data_type="input" class="loan_assure_person_div" style="width:200px;">
+                      <label>保证人姓名 :</label>
+                      <input id="loan_assure_person" type="text" name="loan_assure_person" value="比伯" />
+                    </div>
+                    <div data_type="input" class="loan_assure_person_gender_div" style="width:165px" >
+                      <label>保证人性别 :</label>
+                      <select id="loan_assure_person_gender" name="loan_assure_person_gender" >
+                        <option value="-1" >--请选择--</option>
+                        <option value="1" selected >男</option>
+                        <option value="0">女</option>
+                      </select>
+                    </div>
+                    <div data_type="input" class="loan_person_address_div" style="width:340px;">
+                      <label>保证人住址 :</label>
+                      <input id="loan_person_address" type="text" name="loan_person_address" value="北京簋街" />
+                    </div>
+                  <!--</editor-fold>-->
+                  <br/>
+                  <!--<editor-fold desc="贷款管理 - 审批信息">-->
+                    <div class="info_title">
+                      <label>审批信息</label>
+                      <hr>
+                    </div>
+                    <div data_type="input" class="loan_apply_time_div" style="width:305px;">
+                      <label>申请贷款时间 :</label>
+                      <input id="loan_apply_time" type="text" name="loan_apply_time" value="2021-9-28" />
+                    </div>
+                    <div data_type="input" class="loan_review_person_num_div" style="width:340px;">
+                      <label>贷审会成员数量 :</label>
+                      <input id="loan_review_person_num" type="text" name="loan_review_person_num" value="5" />
+                    </div>
+                    <div data_type="input" class="loan_approve_time_div" style="width:305px;">
+                      <label>审批贷款时间 :</label>
+                      <input id="loan_approve_time" type="text" name="loan_approve_time" value="2021-10-10" />
+                    </div>
+                    <div data_type="input" class="loan_contract_date_div" style="width:340px;">
+                      <label>合同日期 :</label>
+                      <input id="loan_contract_date" type="text" name="loan_contract_date" value="2021-9-30" />
+                    </div>
+                  <!--</editor-fold>-->
+                  <div style="width: 660px;height: 50px;margin-top:10px">
+                    <label><input type="button" class="button" onclick="javascript:save_loan_info();" value="提交"/></label>
+                  </div>
+                </div>
+                <!--</editor-fold>-->
+                <div id="loan_to_be_dev" class="to_be_dev" >
+                  <span class="to_be_dev_text" >当前类型开发中，敬请期待...</span>
+                  <br>
+                  <span class="to_be_dev_text" >建议演示类型：个人 -> 保证 -> 一次性 -> 自主支付</span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--</editor-fold>-->
+          <!--<editor-fold desc="导出弹窗">-->
+          <div id="loan_export" class="modal" align="center">
+            <div class="modal-content" style="height: 120px;" >
+              <span id="export_close" class="close" onclick="javascript:$('#loan_export').hide();">&times;</span>
+              <form method="post" class="smart-green">
+                <label><span>文件导出路径 :</span>
+                  <input id="file_path" type="text" value="D:\\ofc_tool\\export_data"  name="title"/>
+                </label>
+                <label><input type="button" class="button" style="margin: 0px 0px 0px 40px;width: 100px;height: 34px;" onclick="javascript:do_export_loan()" value="确定"/></label>
+                <br/>
+                <label>例：D:\\ofc_tool\\export_data</label>
+              </form>
+            </div>
+          </div>
+          <!--</editor-fold>-->
+
+          <!--<editor-fold desc="加载动画，遮罩层">-->
+          <div id="cover"></div>
+          <div id="coverShow">
+            <table align="center" border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; height: 100px; min-height: 100px;" bgcolor="#127386">
+              <tr>
+                <td height="30" style="font-size: 12px;">正在加载，请稍后......</td>
+              </tr>
+            </table>
+          </div>
+          <!--</editor-fold>-->
+
+
+        </div>
+      <!--</editor-fold>-->
+
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="static/js/crcb_app_index.js"></script>
+</center>
+</body>
+
+</html>

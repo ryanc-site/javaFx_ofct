@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>
+    login
+  </title>
+  <link rel="stylesheet" type="text/css" href="static/css/crcb_app.css">
+  <script src="static/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<!--<editor-fold desc="加载动画，遮罩层">-->
+<div id="cover"></div>
+<div id="coverShow">
+  <table align="center" border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; height: 100px; min-height: 100px;" bgcolor="#127386">
+    <tr>
+      <td height="30" style="font-size: 12px;">正在加载，请稍后......</td>
+    </tr>
+  </table>
+</div>
+<!--</editor-fold>-->
+
+<div id="top_cntr" align="center">
+  <div id="cntr">
+    <!--<editor-fold desc="数据表格">-->
+    <div id="div_title" align="center"><span>&nbsp;授信申请</span></div>
+    <div id="ac_btn" align="left">
+      <button id="create_app" class="create-btn">新建</button> &nbsp; &nbsp; &nbsp;<button id="export_data" class="btn-ac" >导出
+    </button>
+    </div>
+    <hr>
+    <div style="width:98%">
+      <table id="table_data">
+        <tr>
+          <th>序号</th>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>年龄</th>
+          <th>身份证</th>
+          <th>地址</th>
+          <th>婚姻情况</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td colspan="8" align="center">暂无数据</td>
+        </tr>
+      </table>
+    </div>
+    <!--</editor-fold>-->
+
+
+    <!--<editor-fold desc="添加数据">-->
+    <div id="myModalForm" class="modal" align="center">
+
+      <!-- 弹窗内容 -->
+      <div class="modal-content" >
+        <span id="form_close" class="close">&times;</span>
+        <form method="post" class="smart-green">
+          <label><span>姓名 :</span>
+            <input id="name" type="text" name="title"/>
+            <div id="name_err" class="error-msg"></div>
+          </label>
+
+          <label><span>性别 :</span>
+            <select id="gender"  style="width: 513px;">
+              <option value="-1">--请选择--</option>
+              <option value="1">男</option>
+              <option value="0">女</option>
+              <option value="2">其他</option>
+            </select>
+            <div id="gender_err" class="error-msg"></div>
+          </label>
+
+          <label><span>年龄 :</span>
+            <input id="age" type="text" name="age"/>
+            <div id="age_err" class="error-msg"></div>
+          </label>
+
+          <label><span>身份证 :</span>
+            <input id="identity" type="text" name="identity" />
+            <div id="identity_err" class="error-msg"></div>
+          </label>
+
+          <label><span>地址 :</span>
+            <input id="address" type="text" name="marital"/>
+            <div id="address_err" class="error-msg"></div>
+          </label>
+
+          <label><span>婚姻情况 :</span>
+            <select id="marital"  style="width: 513px;">
+              <option value="-1">--请选择--</option>
+              <option value="1">已婚</option>
+              <option value="0">未婚</option>
+              <option value="2">其他</option>
+            </select>
+            <div id="marital_err" class="error-msg"></div>
+          </label>
+
+          <label><input type="button" class="button" onclick="javascript:dosubmit()" value="确定"/></label>
+          <input type="hidden" name="csrfmiddlewaretoken" value="SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa"/>
+        </form>
+      </div>
+
+    </div>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="数据导出">-->
+    <!-- 弹窗 -->
+    <div id="myModalExport" class="modal" align="center">
+      <div class="modal-content" >
+        <span id="export_close" class="close">&times;</span>
+        <form method="post" class="smart-green">
+          <label><span>文件导出路径 :</span>
+            <input id="file_path" type="text"  name="title"/>
+            <div id="file_path_err" class="error-msg"></div>
+          </label>
+                  <label><input type="button" class="button" onclick="javascript:do_exprot()" value="确定"/></label>
+        </form>
+      </div>
+    </div>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="数据导出">-->
+    <!-- 弹窗 -->
+    <div id="export_res" class="modal" align="center">
+      <!-- 弹窗内容 -->
+      <div class="modal-content" >
+        <span id="export_res_close" class="close">&times;</span>
+        <form method="post" class="smart-green">
+          <label><span id="export_result">文件导出结果：</span>
+          </label>
+          <label><input type="button" class="button" onclick="document.getElementById('export_res').style.display='none';" value="确定"/></label>
+        </form>
+      </div>
+    </div>
+    <!--</editor-fold>-->
+
+  </div>
+
+</div>
+<script type="text/javascript" src="static/crcb_app_temp.js"></script>
+</body>
+
+</html>

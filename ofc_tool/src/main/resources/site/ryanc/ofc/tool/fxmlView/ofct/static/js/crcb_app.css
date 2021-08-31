@@ -1,0 +1,160 @@
+
+
+
+.create-btn{font-size:16px;width:68px;height:30px;border: 1px solid #41508b;background-color: white;border-radius:4px; font-family:'KaiTi'}
+.create-btn:hover{width:68px;height:30px;border: 2px solid #41508b; color:#41508b;font-weight: bold;cursor:pointer;}
+
+.btn-ac{ border:1px solid blue; display:inline-block;-webkit-appearance:none;text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box;min-width:80px;max-width:120px;height:30px;line-height:30px;color:#1890ff;fill:#1890ff;font-size:12px;white-space:nowrap;text-overflow:ellipsis;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-width:1px;border-style:solid;border-color:#d9d9d9;-o-border-image:initial;border-image:initial;border-radius:2px;background:#fff;padding:0 8px;overflow:hidden;color:#fff;fill:#41508b;border-color:#41508b;background-color:#41508b;-webkit-transition:border .3s ease 0s,color .3s ease 0s,background .3s ease 0s;transition:border .3s ease 0s,color .3s ease 0s,background .3s ease 0s;outline:0}
+
+table{width:100%;border-collapse:collapse;font-family:'KaiTi';}
+th,td{border:1px solid #999;text-align:center;padding:5px 0}
+table thead tr{background-color:#008c8c;color:#fff}
+table tbody tr:nth-child(odd){background-color:#eee}
+table tbody tr:hover{background-color:#ccc}
+table tbody tr td:first-child{color:#f40}
+table tfoot tr td{text-align:right;padding-right:20px}
+
+#top_cntr{width:1415px;height:795px;border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+#cntr{width:100%;min-width:1100px;margin:0;padding:0;height:70%}
+.div_title{background:#41508b;color:white;height:35px;font-size:25px}
+.ac_btn{background:#fff;padding:5px;width:200px;margin: 0px 0px 0px -955px;}
+.modal{margin-top:-150px;display:none;position:absolute;z-index:1;left:auto;right:auto;width:1180px;height:795px;overflow:auto;background-color:#000;background-color:rgba(0,0,0,0.4)}
+.modal-content{background-color:#fefefe;margin:10% auto;padding:20px;border:1px solid #888;width:60%;height:510px}
+.close{color:#aaa;float:right;font-size:28px;font-weight:bold}
+.close:hover,.close:focus{color:black;text-decoration:none;cursor:pointer}
+
+.smart-green{margin-left:auto;margin-right:auto;max-width:500px;padding:30px 30px 20px 30px;font:12px Arial,Helvetica,sans-serif;color:#666;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px}
+.smart-green h1{font:24px "Trebuchet MS",Arial,Helvetica,sans-serif;padding:20px 0 20px 40px;display:block;margin:-30px -30px 10px -30px;color:#FFF;background:#9dc45f;text-shadow:1px 1px 1px #949494;border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;border-bottom:1px solid #89af4c}
+.smart-green h1>span{display:block;font-size:11px;color:#FFF}
+.smart-green label{float:left;margin-top:5px;}
+.smart-green div[data_type="input"]{color:#273053;/*border:1px solid red;*/width:300px;height:38px;position:relative;top:5px;}
+
+.smart-green input[type="text"]{border-radius:4px;color:#555;height:30px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+.smart-green textarea{height:100px;padding-top:10px}
+.smart-green .button{width:210px;margin:0px 0px 0px 130px;background-color:#00a2ff;border-radius:5px;-webkit-border-radius:5px;-moz-border-border-radius:5px;border:0;padding:10px 25px 10px 25px;color:#FFF;text-shadow:1px 1px 1px #949494}
+.smart-green .button:hover{background-color:#41508b;cursor:pointer;}
+.error-msg{color:red;margin-top:10px}
+.success-msg{color:#80a24a;margin-top:10px;margin-bottom:10px}
+
+#cover{display:none;position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.44)}
+#coverShow{display:none;position:fixed;z-index:2;top:50%;left:50%;border:1px solid #127386;width:230px;height:100px;margin-left:-150px;margin-top:-150px;background:#127386}
+
+/*左侧框架*/
+#div_left_menu{height:816px;width:230px;margin-left:-0px;float:left}
+#div_left_top{height:60px;width:230px;background-image:url('../img/left_top.png');background-repeat:no-repeat;background-size:100% 100%}
+#div_left_content{padding-top:20px;height:655px;width:230px}
+#div_left_bottom{height:30px;width:230px}
+#CopyRight{float:left;width:110px}
+#btom_date{width:115px}
+/*左侧 - 菜单menu*/
+.menu_btn{width: 235px;height: 50px;margin-top: 5px;}
+.menu_customer_sub_btn{width: 235px;height: 50px;cursor:pointer;margin: -10px 0px 0px 80px;}
+.menu_btn_ico{ float: left; width: 20px; height: 20px; margin-left: 35px;cursor:pointer;}
+.menu_btn_ico.customer{background-image:url('../img/customer.png');background-repeat:no-repeat;background-size:100% 100%;}
+.menu_btn_ico.loanmgr{background-image:url('../img/loanmgr.png');background-repeat:no-repeat;background-size:100% 100%;}
+.menu_btn_ico.report{background-image:url('../img/report.png');background-repeat:no-repeat;background-size:100% 100%;}
+.menu_btn_ico.loanprocess{background-image:url('../img/loanprocess.png');background-repeat:no-repeat;background-size:100% 100%;}
+.menu_btn_text{float: left;font-size: 18px; font-family: 'KaiTi', serif;cursor:pointer;}
+
+/*左侧 - copyright*/
+.cp_btom{color:#409EFF;font-size:11px}
+.cp_btom_noclr{float:left;font-size:11px;}
+
+/*左侧 - 时间块*/
+.sp_date_ico{float:left;width:15px;height:13px;background-image:url('../img/date_ico.png');background-repeat:no-repeat;background-size:100% 100%;margin:2px 0 0 10px}
+.sp_date_font{width:90px;float:left;}
+
+
+
+/*中间分割墙*/
+#div_Partition{background:#eee;height:795px;width:5px;float:left}
+
+
+/*右侧内容div*/
+#div_right_content{height:795px;width:1180px;float:left;background-image:url('../img/right_content_bg.png');background-repeat:no-repeat;background-size:100% 100%}
+
+/*右侧 - 待开发功能*/
+#to_be_dev{display:none;margin-top: 120px; width: 800px;height: 735px; background-image: url('../img/to_be_dev.png');background-repeat:no-repeat;background-size:100% 100%;}
+.to_be_dev_text{font-family: 'KaiTi';font-size: 18px;line-height: 40px;color: #1d577c;text-align: center;padding-top: 20px;}
+
+/*右侧 - 客户管理*/
+.customer_mgr_div{display:none;}
+.customer_type_title{font-family:'KaiTi';width: 140px;margin: -31px 0px 10px 1065px;color: cornflowerblue;font-weight: bold;}
+.current_position{margin: -31px 0px 8px 990px;width: 25px;height: 25px;background-image: url('../img/current_position.png');background-repeat:no-repeat;background-size:100% 100%;}
+
+.info_title{width: 660px;margin-left: -35px}
+.info_title label{margin-left: -30px;color:#41508b;font-weight: bold}
+.info_title hr{width: 660px;margin: 30px 0px 0px -80px;}
+
+/*p_姓名*/
+.p_name_div{margin:0px 0px 0px -350px;}
+.p_name_div input{width:180px;margin: 0px 0px 0px -10px;}
+
+/*p_性别*/
+.p_gender_div{margin:-40px 0px 0px 65px;}
+.p_gender_div label{margin-top:7px}
+.p_gender_div select{width:110px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/*p_婚姻情况*/
+.p_marital_div{margin:-40px 0px 0px 386px}
+.p_marital_div label{margin-top:7px}
+.p_marital_div select{margin-top: 2px;width:100px;border-radius:4px;color:#555;height:33px;line-height:15px;padding:0 0 0 10px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+
+/*p_电话*/
+.p_tel_div{margin:5px 0px 0px -350px;}
+.p_tel_div label{margin-top:7px}
+.p_tel_div input{width:180px;margin: 0px 0px 0px -10px;}
+
+/*p_身份证*/
+.p_ID_div{margin:-38px 0px 0px 200px}
+.p_ID_div label{margin-top:7px}
+.p_ID_div input{width:290px;margin: 0px 0px 0px -6px;}
+
+
+/*p_身份证地址*/
+.p_ID_add_div{margin:0px 0px 0px -47px}
+.p_ID_add_div label{margin-top:7px}
+.p_ID_add_div input{width:515px;margin: 0px 0px 0px -6px;}
+
+/*p_职业*/
+.p_job_div{margin:2px 0px 0px -241px}
+.p_job_div label{margin-top:7px}
+.p_job_div input{width:240px;margin: 0px 0px 0px -5px;}
+
+/*p_月收入*/
+.p_m_in_div{margin:-38px 0px 0px 308px}
+.p_m_in_div label{margin-top:8px}
+.p_m_in_div input{width:185px;margin: 0px 0px 0px -5px;}
+
+/*p_年收入*/
+.p_y_in_div{margin:5px 0px 0px -391px}
+.p_y_in_div label{margin-top:7px}
+.p_y_in_div input{width:120px;margin: 0px 0px 0px -6px;}
+
+/*p_总资产*/
+.p_total_asset_div{margin:-38px 0px 0px 14px}
+.p_total_asset_div label{margin-top:7px}
+.p_total_asset_div input{width:120px;margin: 0px 0px 0px -6px;}
+
+/*p_总负债*/
+.p_total_debt_div{margin:-38px 0px 0px 358px}
+.p_total_debt_div label{margin-top:7px}
+.p_total_debt_div input{width:130px;margin: 0px 0px 0px 0px;}
+
+/*p_净资产*/
+.p_net_asset_div{margin:4px 0px 0px -342px}
+.p_net_asset_div label{margin-top:7px}
+.p_net_asset_div input{width:185px;margin: 0px 0px 0px -6px;}
+
+/*p_上年家庭净资产*/
+.p_last_year_family_net_asset_div{margin:-38px 0px 0px 208px}
+.p_net_assetp_last_year_family_net_asset_div_div label{margin-top:7px}
+.p_last_year_family_net_asset_div input{width:240px;margin: 0px 0px 0px -6px;}
+
+
+
+
+#loan_mgr_div{display:none;}
+
+/*右侧 - 贷款管理*/

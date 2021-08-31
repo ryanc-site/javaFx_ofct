@@ -1,0 +1,9 @@
+# Default ignored files
+#/.gitignore
+/.idea
+/ofc_tool.iml
+/logs
+
+libs/
+system_plugin_list.json
+RUNNING_PID
