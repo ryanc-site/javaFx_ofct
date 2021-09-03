@@ -330,9 +330,13 @@
             <table id="loan_mgr_table_data">
               <thead>
               <tr>
-                <th></th>
+<!--                <th></th>-->
                 <th>序号</th>
                 <th>姓名</th>
+                <th>客户类型</th>
+                <th>保证方式</th>
+                <th>贷款方式</th>
+                <th>支付方式</th>
                 <th>金额</th>
                 <th>利率</th>
                 <th>期限（月）</th>
@@ -340,14 +344,14 @@
               </tr>
               </thead>
               <tr>
-                <td colspan="8" align="center">暂无数据</td>
+                <td colspan="10" align="center">暂无数据</td>
               </tr>
             </table>
           </div>
           <!--</editor-fold>-->
           <!--<editor-fold desc="添加数据">-->
           <div id="loan_mgr_Form" class="modal" align="center" >
-            <div class="modal-content" >
+            <div class="modal-content">
 
               <span class="close" onclick="hide_mask_layer('loan_mgr')">&times;</span>
               <form method="post" class="smart-green">
@@ -396,7 +400,7 @@
                   <label><input type="button" class="button" onclick="javascript:loan_type_sure()" value="确定"/></label>
                 </div>
                 <!--</editor-fold>-->
-                <div id="loan_person_assure_one-time_self-payment" style="display: none;">
+                <div id="loan_form_info" style="display: none;margin-top:-20px">
                   <br/>
                   <!--<editor-fold desc="贷款管理 - 贷款信息">-->
                   <div class="info_title">
@@ -492,29 +496,105 @@
                       <label>保证人住址 :</label>
                       <input id="loan_person_address" type="text" name="loan_person_address" value="北京簋街" />
                     </div>
+                  <div data_type="input" class="loan_person_id_div" style="width:460px;">
+                    <label>保证人身份证 :</label>
+                    <input id="loan_person_id" type="text" name="loan_person_id" value="652222222222222222" />
+                  </div>
+                  <!--</editor-fold>-->
+                  <br/>
+                  <!--<editor-fold desc="贷款管理 - 其他信息">-->
+                  <div id="loan_other_info" style="display:none;" >
+                    <div class="info_title">
+                      <label>其他信息</label>
+                      <hr>
+                    </div>
+                    <!--<editor-fold desc="贷款方式：循环方式 => 附加项">-->
+                    <div id="other_loan_mode_2" style="display:none;">
+                      <div data_type="input" class="loan_this_start_date_div" style="width:225px;">
+                        <label>本次借款起始日期 :</label>
+                        <input id="loan_this_start_date" type="text" name="loan_this_start_date" value="2021-9-28" />
+                      </div>
+                      <div data_type="input" class="loan_this_end_date_div" style="width:225px;">
+                        <label>本次借款终止日期 :</label>
+                        <input id="loan_this_end_date" type="text" name="loan_this_end_date" value="2021-10-28" />
+                      </div>
+                      <div data_type="input" class="loan_this_months_div" style="width:215px;">
+                        <label>本次借款月数 :</label>
+                        <input id="loan_this_months" type="text" name="loan_this_months" value="1" />
+                      </div>
+                    </div>
+                    <!--</editor-fold>-->
+                    <!--<editor-fold desc="贷款方式：特色产品 => 附加项">-->
+                    <div id="other_loan_mode_3" style="display:none;">
+                      <div data_type="input" class="loan_special_prod_type_div" style="width:235px" >
+                        <label>特色产品种类 :</label>
+                        <select id="loan_special_prod_type" name="loan_special_prod_type" >
+                          <option value="-1">--请选择--</option>
+                          <option value="1" selected>商贷宝</option>
+                          <option value="2">消贷宝</option>
+                          <option value="3">农贸宝</option>
+                        </select>
+                      </div>
+                      <div data_type="input" class="loan_borrower_type_div" style="width:235px" >
+                        <label>借款人类型 :</label>
+                        <select id="loan_borrower_type" name="loan_borrower_type" >
+                          <option value="-1">--请选择--</option>
+                          <option value="1" selected>农户</option>
+                          <option value="2">自然人</option>
+                          <option value="3">个体工商户</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!--</editor-fold>-->
+                    <!--<editor-fold desc="支付方式：委托支付 => 附加项">-->
+                    <div id="other_loan_pay_mode_2" style="display:none;">
+                      <div data_type="input" class="loan_entrust_pay_date_div" style="width:223px;">
+                        <label>委托支付日期 :</label>
+                        <input id="loan_entrust_pay_date" type="text" name="loan_entrust_pay_date" value="2021-9-28" />
+                      </div>
+                      <div data_type="input" class="loan_entrust_pay_amount_div" style="width:225px;">
+                        <label>委托支付金额 :</label>
+                        <input id="loan_entrust_pay_amount" type="text" name="loan_entrust_pay_amount" value="2021-10-28" />
+                      </div>
+                      <div data_type="input" class="loan_entrust_pay_payee_div" style="width:460px;">
+                        <label>委托支付收款单位 :</label>
+                        <input id="loan_entrust_pay_payee" type="text" name="loan_entrust_pay_payee" value="委托支付收款单位" />
+                      </div>
+                      <div data_type="input" class="loan_entrust_pay_receipt_account_div" style="width:460px;">
+                        <label>委托支付收款账号 :</label>
+                        <input id="loan_entrust_pay_receipt_account" type="text" name="loan_entrust_pay_receipt_account" value="6228480718233862776" />
+                      </div>
+                      <div data_type="input" class="loan_entrust_pay_receipt_deposit_div" style="width:460px;">
+                        <label>委托支付收款开户行 :</label>
+                        <input id="loan_entrust_pay_receipt_deposit" type="text" name="loan_entrust_pay_receipt_deposit" value="农业银行" />
+                      </div>
+                    </div>
+                    <!--</editor-fold>-->
+                  </div>
+
                   <!--</editor-fold>-->
                   <br/>
                   <!--<editor-fold desc="贷款管理 - 审批信息">-->
-                    <div class="info_title">
-                      <label>审批信息</label>
-                      <hr>
-                    </div>
-                    <div data_type="input" class="loan_apply_time_div" style="width:305px;">
-                      <label>申请贷款时间 :</label>
-                      <input id="loan_apply_time" type="text" name="loan_apply_time" value="2021-9-28" />
-                    </div>
-                    <div data_type="input" class="loan_review_person_num_div" style="width:340px;">
-                      <label>贷审会成员数量 :</label>
-                      <input id="loan_review_person_num" type="text" name="loan_review_person_num" value="5" />
-                    </div>
-                    <div data_type="input" class="loan_approve_time_div" style="width:305px;">
-                      <label>审批贷款时间 :</label>
-                      <input id="loan_approve_time" type="text" name="loan_approve_time" value="2021-10-10" />
-                    </div>
-                    <div data_type="input" class="loan_contract_date_div" style="width:340px;">
-                      <label>合同日期 :</label>
-                      <input id="loan_contract_date" type="text" name="loan_contract_date" value="2021-9-30" />
-                    </div>
+                  <div class="info_title">
+                    <label>审批信息</label>
+                    <hr>
+                  </div>
+                  <div data_type="input" class="loan_apply_time_div" style="width:305px;">
+                    <label>申请贷款时间 :</label>
+                    <input id="loan_apply_time" type="text" name="loan_apply_time" value="2021-9-28" />
+                  </div>
+                  <div data_type="input" class="loan_review_person_num_div" style="width:340px;">
+                    <label>贷审会成员数量 :</label>
+                    <input id="loan_review_person_num" type="text" name="loan_review_person_num" value="5" />
+                  </div>
+                  <div data_type="input" class="loan_approve_time_div" style="width:305px;">
+                    <label>审批贷款时间 :</label>
+                    <input id="loan_approve_time" type="text" name="loan_approve_time" value="2021-10-10" />
+                  </div>
+                  <div data_type="input" class="loan_contract_date_div" style="width:340px;">
+                    <label>合同日期 :</label>
+                    <input id="loan_contract_date" type="text" name="loan_contract_date" value="2021-9-30" />
+                  </div>
                   <!--</editor-fold>-->
                   <div style="width: 660px;height: 50px;margin-top:10px">
                     <label><input type="button" class="button" onclick="javascript:save_loan_info();" value="提交"/></label>
