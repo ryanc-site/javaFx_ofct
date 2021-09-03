@@ -19,16 +19,16 @@ public class LoanInfo implements Comparable<LoanInfo> {
     /** 主键id 单机版应用->故：不考虑线程安全问题 */
     private String id = HexUtil.toHex(System.currentTimeMillis());
 
-    /** 客户类型 */
+    /** 客户类型 : 1 - 个人；0 - 公司； */
     private Integer loan_customer_type;
-    /** 保证方式 */
+    /** 保证方式 ：1 - 抵押；2 - 保证； 3 - 信用；4 - 质押； */
     private Integer loan_assure_type;
-    /** 贷款方式 */
+    /** 贷款方式 ：1 - 一次性；2 - 循环； 3 - 特色产品； */
     private Integer loan_mode;
-    /** 支付方式 */
+    /** 支付方式 ：1 - 自主支付；2 - 委托支付； */
     private Integer loan_pay_mode;
 
-    /** 还款方式 */
+    /** 还款方式 ： 1 - 等额本息；2 - 等额本金； 3 - 按月结息；4 - 到期还本、计划还款；*/
     private Integer loan_repay_mode;
     /** 还款人 */
     private String loan_repay_person;
@@ -65,6 +65,34 @@ public class LoanInfo implements Comparable<LoanInfo> {
     private String loan_assure_person_gender;
     /** 保证人住址 */
     private String loan_person_address;
+    /** 保证人身份证 */
+    private String loan_person_id;
+
+    // 贷款方式：循环方式 ==> 附加项
+    /** 本次借款起始日期 */
+    private String loan_this_start_date;
+    /** 本次借款终止日期 */
+    private String loan_this_end_date;
+    /** 本次借款月数 */
+    private String loan_this_months;
+
+    // 贷款方式：特色产品 ==> 附加项
+    /** 特色产品种类 : 1 - 商贷宝；2 - 消贷宝；3 - 农贸宝 */
+    private Integer loan_special_prod_type;
+    /** 借款人类型 : 1 - 农户；2 - 自然人；3 - 个体工商户 */
+    private Integer loan_borrower_type;
+
+    // 支付方式：委托 ==> 附加项
+    /** 委托支付日期 */
+    private String loan_entrust_pay_date;
+    /** 委托支付金额 */
+    private String loan_entrust_pay_amount;
+    /** 委托支付收款单位 */
+    private String loan_entrust_pay_payee;
+    /** 委托支付收款账号 */
+    private String loan_entrust_pay_receipt_account;
+    /** 委托支付收款开户行 */
+    private String loan_entrust_pay_receipt_deposit;
 
     /** 申请贷款时间 */
     private String loan_apply_time;
@@ -74,6 +102,9 @@ public class LoanInfo implements Comparable<LoanInfo> {
     private String loan_approve_time;
     /** 合同日期 */
     private String loan_contract_date;
+
+
+
     /**  创建时间 */
     private Date ctime = new Date();
 
