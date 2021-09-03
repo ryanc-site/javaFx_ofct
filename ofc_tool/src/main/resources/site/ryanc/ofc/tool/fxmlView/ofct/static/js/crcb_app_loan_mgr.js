@@ -2,7 +2,7 @@
 let export_loan_id = "";
 
 let empty_loan_customer_html = "<tr>\n" +
-    "          <td colspan=\"6\" align=\"center\">暂无数据</td>\n" +
+    "          <td colspan=\"10\" align=\"center\">暂无数据</td>\n" +
     "        </tr>";
 
 let loan_title_html = "<thead>\n" +
@@ -10,6 +10,10 @@ let loan_title_html = "<thead>\n" +
    /* "                <th></th>\n" +*/
     "                <th>序号</th>\n" +
     "                <th>姓名</th>\n" +
+    "                <th>客户类型</th>\n" +
+    "                <th>保证方式</th>\n" +
+    "                <th>贷款方式</th>\n" +
+    "                <th>支付方式</th>\n" +
     "                <th>金额</th>\n" +
     "                <th>利率</th>\n" +
     "                <th>期限（月）</th>\n" +
@@ -19,14 +23,10 @@ let loan_title_html = "<thead>\n" +
 
 /* call 类型筛选确认 */
 function loan_type_sure(){
-    var loan_to_be_dev_ele = document.getElementById("loan_to_be_dev");
-
     var loan_customer_type_ele = document.getElementById("loan_customer_type");
     var loan_assure_type_ele = document.getElementById("loan_assure_type");
     var loan_mode_ele = document.getElementById("loan_mode");
     var loan_pay_mode_ele = document.getElementById("loan_pay_mode");
-
-    var loan_form_info_ele = document.getElementById("loan_person_assure_one-time_self-payment");
 
     if(loan_customer_type_ele.value === '-1'
         || loan_assure_type_ele.value === '-1'
@@ -37,11 +37,23 @@ function loan_type_sure(){
         && loan_assure_type_ele.value === '2'
         && loan_mode_ele.value === '1'
         && loan_pay_mode_ele.value === '1'){
-        loan_form_info_ele.style.display = 'block';
-        loan_to_be_dev_ele.style.display = 'none';
+        $('#loan_form_info').show();
+        $('#loan_to_be_dev').hide();
+
+        $('#loan_other_info').hide();
+        $('#other_loan_mode_2').hide();
+        $('#other_loan_mode_3').hide();
+        $('#other_loan_pay_mode_2').hide();
+    }else if(loan_customer_type_ele.value === '1'
+             && loan_assure_type_ele.value === '2'){
+        display_other_loan_mode(loan_mode_ele.value)
+        display_other_loan_pay_mode(loan_pay_mode_ele.value)
+        $('#loan_other_info').show();
+        $('#loan_form_info').show();
     }else{
-        loan_form_info_ele.style.display = 'none';
-        loan_to_be_dev_ele.style.display = 'block';
+        $('#loan_other_info').hide();
+        $('#loan_form_info').hide();
+        $('#loan_to_be_dev').show();
     }
 }
 
@@ -99,6 +111,7 @@ function do_export_loan(){
 
 }
 
+/* call 删除贷款信息 */
 function del_loan(loan_id){
     var loanDelParam = {
         "loan_id":loan_id
@@ -114,11 +127,13 @@ function del_loan(loan_id){
 
 // --- 内部方法 ----------------------------------------------------------------------
 function buildLoanInfoParamJson(){
+    // 类别删选
     var loan_customer_type  = document.getElementById("loan_customer_type").value;
     var loan_assure_type  = document.getElementById("loan_assure_type").value;
     var loan_mode  = document.getElementById("loan_mode").value;
     var loan_pay_mode  = document.getElementById("loan_pay_mode").value;
 
+    // 贷款信息
     var loan_repay_mode  = document.getElementById("loan_repay_mode").value;
     var loan_repay_person  = document.getElementById("loan_repay_person").value;
     var loan_person_carno  = document.getElementById("loan_person_carno").value;
@@ -135,10 +150,30 @@ function buildLoanInfoParamJson(){
     var loan_main_contractno  = document.getElementById("loan_main_contractno").value;
     var loan_sub_contractno  = document.getElementById("loan_sub_contractno").value;
 
+    // 保证信息
     var loan_assure_person  = document.getElementById("loan_assure_person").value;
     var loan_assure_person_gender  = document.getElementById("loan_assure_person_gender").value;
     var loan_person_address  = document.getElementById("loan_person_address").value;
+    var loan_person_id  = document.getElementById("loan_person_id").value;
 
+    // 其他信息
+    // 贷款方式：循环方式 ==> 附加项
+    var loan_this_start_date  = document.getElementById("loan_this_start_date").value;
+    var loan_this_end_date  = document.getElementById("loan_this_end_date").value;
+    var loan_this_months  = document.getElementById("loan_this_months").value;
+    // 贷款方式：特色产品 ==> 附加项
+    var loan_special_prod_type  = document.getElementById("loan_special_prod_type").value;
+    var  loan_borrower_type = document.getElementById("loan_borrower_type").value;
+
+    // 支付方式：委托 ==> 附加项
+    var loan_entrust_pay_date  = document.getElementById("loan_entrust_pay_date").value;
+    var loan_entrust_pay_amount  = document.getElementById("loan_entrust_pay_amount").value;
+    var loan_entrust_pay_payee  = document.getElementById("loan_entrust_pay_payee").value;
+    var loan_entrust_pay_receipt_account  = document.getElementById("loan_entrust_pay_receipt_account").value;
+    var loan_entrust_pay_receipt_deposit  = document.getElementById("loan_entrust_pay_receipt_deposit").value;
+
+
+    // 审批信息
     var loan_apply_time  = document.getElementById("loan_apply_time").value;
     var loan_review_person_num  = document.getElementById("loan_review_person_num").value;
     var loan_approve_time  = document.getElementById("loan_approve_time").value;
@@ -170,12 +205,105 @@ function buildLoanInfoParamJson(){
         "loan_assure_person_gender":loan_assure_person_gender,
         "loan_person_address":loan_person_address,
 
+        "loan_this_start_date":loan_this_start_date,
+        "loan_this_end_date":loan_this_end_date,
+        "loan_this_months":loan_this_months,
+
+        "loan_special_prod_type":loan_special_prod_type,
+        "loan_borrower_type":loan_borrower_type,
+
+        "loan_entrust_pay_date":loan_entrust_pay_date,
+        "loan_entrust_pay_amount":loan_entrust_pay_amount,
+        "loan_entrust_pay_payee":loan_entrust_pay_payee,
+        "loan_entrust_pay_receipt_account":loan_entrust_pay_receipt_account,
+        "loan_entrust_pay_receipt_deposit":loan_entrust_pay_receipt_deposit,
+
         "loan_apply_time":loan_apply_time,
         "loan_review_person_num":loan_review_person_num,
         "loan_approve_time":loan_approve_time,
         "loan_contract_date":loan_contract_date
     }
     return loan_json;
+}
+
+// 显示 - 其他信息 - 贷款方式
+function display_other_loan_mode(type){
+    var isOk = false;
+    switch (type) {
+        case '1': {
+            $('#other_loan_mode_2').hide()
+            $('#other_loan_mode_3').hide()
+            clean_other_loan_mode_value("2");
+            clean_other_loan_mode_value("3");
+            isOk = true;
+            break;
+        }
+        case '2': {
+            $('#other_loan_mode_2').show()
+            $('#other_loan_mode_3').hide()
+            clean_other_loan_mode_value("3");
+            isOk = true;
+            break;
+        }
+        case '3': {
+            $('#other_loan_mode_2').hide()
+            $('#other_loan_mode_3').show()
+            clean_other_loan_mode_value("2");
+            isOk = true;
+            break;
+        }
+    }
+    return isOk;
+}
+
+// 显示 - 其他信息 - 支付方式
+function display_other_loan_pay_mode(type){
+    var isOk = false;
+    switch (type) {
+        case '1': {
+            $('#other_loan_pay_mode_2').hide();
+            clean_other_loan_pay_mode_value("2");
+            isOk = true;
+            break;
+        }
+        case '2': {
+            $('#other_loan_pay_mode_2').show();
+            isOk = true;
+            break;
+        }
+    }
+    return isOk;
+}
+
+// 清除 — 贷款方式对应的值
+function clean_other_loan_mode_value(type){
+    switch (type) {
+        case '2': {
+            $('#loan_this_start_date').val("")
+            $('#loan_this_end_date').val("")
+            $('#loan_this_months').val("")
+            break;
+        }
+        case '3': {
+            $('#loan_special_prod_type').val("-1")
+            $('#loan_borrower_type').val("-1")
+            break;
+        }
+    }
+}
+
+// 清除 — 支付方式对应的值
+function clean_other_loan_pay_mode_value(type){
+    switch (type) {
+        case '2': {
+            $('#loan_entrust_pay_date').val("")
+            $('#loan_entrust_pay_amount').val("")
+            $('#loan_entrust_pay_payee').val("")
+            $('#loan_entrust_pay_receipt_account').val("")
+            $('#loan_entrust_pay_receipt_deposit').val("")
+            break;
+        }
+    }
 }
 
 // 回显 - 个人客户数据
@@ -192,7 +320,13 @@ function displayLoanInfos(loanJson){
                 /*"          <td><input type='checkbox'/></td>\n" +*/
                 "          <td>"+loan.id+"</td>\n" +
                 "          <td>"+loan.loan_repay_person+"</td>\n" +
-                "          <td>"+loan.loan_amount_upcase+"</td>\n" +
+
+                "          <td>"+display_customer(loan.loan_customer_type)+"</td>\n" +
+                "          <td>"+display_Loan_assure_type(loan.loan_assure_type)+"</td>\n" +
+                "          <td>"+display_loan_mode(loan.loan_mode)+"</td>\n" +
+                "          <td>"+display_Loan_pay_mode(loan.loan_pay_mode)+"</td>\n" +
+
+                "          <td>"+loan.loan_amount_lowcase+"</td>\n" +
                 "          <td>"+loan.loan_m_rate+"</td>\n" +
                 "          <td>"+loan.loan_term+"</td>\n" +
                 "          <td>" +
@@ -204,4 +338,80 @@ function displayLoanInfos(loanJson){
         });
     }
     loan_table_data_ele.innerHTML = loan_data_html;
+}
+
+// 转义 - 客户方式
+function display_customer(type) {
+        var result = "";
+        switch (type) {
+            case 1: {
+                result = "个人";
+                break;
+            }
+            case 0: {
+                result = "公司";
+                break;
+            }
+        }
+        return result;
+    }
+
+// 转义 - 贷款方式
+function display_loan_mode(type) {
+        var result = "";
+        switch (type) {
+            case 1: {
+                result = "一次性";
+                break;
+            }
+            case 2: {
+                result = "循环";
+                break;
+            }
+            case 3: {
+                result = "特色产品";
+                break;
+            }
+        }
+        return result;
+    }
+
+// 转义 - 保证方式
+function display_Loan_assure_type(type) {
+        var result = "";
+        switch (type) {
+            case 1: {
+                result = "抵押";
+                break;
+            }
+            case 2: {
+                result = "保证";
+                break;
+            }
+            case 3: {
+                result = "信用";
+                break;
+            }
+            case 4: {
+                result = "质押";
+                break;
+            }
+        }
+        return result;
+    }
+
+// 转义 - 支付方式
+function display_Loan_pay_mode(type) {
+    var result = "";
+    switch (type) {
+        case 1: {
+            result = "自主支付";
+            break;
+        }
+        case 2: {
+            result = "委托支付";
+            break;
+        }
+    }
+    return result;
 }
