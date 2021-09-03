@@ -115,8 +115,13 @@
 
 /* 保证人住址 */
 .loan_person_address_div{margin:-38px 0px 0px 280px}
-.loan_person_address_div label{margin-top:7px}
+.loan_person_address_div label{margin-top:10px}
 .loan_person_address_div input{width:215px;margin: 4px 0px 0px -30px;}
+
+/* 保证人身份证 */
+.loan_person_id_div{margin:0px 0px 0px -185px}
+.loan_person_id_div label{margin-top:10px}
+.loan_person_id_div input{width:320px;margin: 2px 0px 0px -35px;}
 
 /* 申请贷款时间 */
 .loan_apply_time_div{margin:0px 0px 0px -340px}
@@ -137,5 +142,58 @@
 .loan_contract_date_div{margin:-38px 0px 0px 280px}
 .loan_contract_date_div label{margin-top:9px}
 .loan_contract_date_div input{width:200px;margin: 4px 0px 0px -30px;}
+
+/* --- 贷款方式：循环方式 ==> 附加项 ------------------------------------------------*/
+/* 本次借款起始日期 */
+.loan_this_start_date_div{margin:0px 0px 0px -420px}
+.loan_this_start_date_div label{margin-top:10px}
+.loan_this_start_date_div input{width:100px;margin: 5px 0px 0px 0px;}
+
+/* 本次借款终止日期 */
+.loan_this_end_date_div{margin:-38px 0px 0px 30px}
+.loan_this_end_date_div label{margin-top:12px}
+.loan_this_end_date_div input{width:100px;margin: 5px 0px 0px 0px;}
+
+/* 本次借款月数 */
+.loan_this_months_div{margin:-38px 0px 0px 382px}
+.loan_this_months_div label{margin-top:12px}
+.loan_this_months_div input{width:100px;margin: 5px 0px 0px -10px;}
+
+/* --- 贷款方式：特色产品 ==> 附加项 ------------------------------------------------*/
+/* 特色产品种类 */
+.loan_special_prod_type_div{margin:5px 0px 0px -408px;}
+.loan_special_prod_type_div label{margin-top:7px}
+.loan_special_prod_type_div select{width:114px;border-radius:4px;color:#555;height:30px;line-height:15px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* 借款人类型 */
+.loan_borrower_type_div{margin:-38px 0px 0px 58px;}
+.loan_borrower_type_div label{margin-top:7px}
+.loan_borrower_type_div select{width:114px;border-radius:4px;color:#555;height:30px;line-height:15px;border:1px solid #e5e5e5;background:#fbfbfb;outline:0;-webkit-box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);box-shadow:inset 1px 1px 2px rgba(238,238,238,0.2);font:normal 14px/14px Arial,Helvetica,sans-serif}
+
+/* --- 支付方式：委托 ==> 附加项 ------------------------------------------------*/
+/* 委托支付日期 */
+.loan_entrust_pay_date_div{margin:0px 0px 0px -420px}
+.loan_entrust_pay_date_div label{margin-top:10px}
+.loan_entrust_pay_date_div input{width:100px;margin: 5px 0px 0px 0px;}
+
+/* 委托支付金额 */
+.loan_entrust_pay_amount_div{margin:-38px 0px 0px 85px}
+.loan_entrust_pay_amount_div label{margin-top:12px}
+.loan_entrust_pay_amount_div input{width:100px;margin: 5px 0px 0px -15px;}
+
+/* 委托支付收款单位 */
+.loan_entrust_pay_payee_div{margin:0px 0px 0px -182px}
+.loan_entrust_pay_payee_div label{margin-top:10px}
+.loan_entrust_pay_payee_div input{width:320px;margin: 5px 0px 0px 10px;}
+
+/* 委托支付收款账号 */
+.loan_entrust_pay_receipt_account_div{margin:0px 0px 0px -182px}
+.loan_entrust_pay_receipt_account_div label{margin-top:10px}
+.loan_entrust_pay_receipt_account_div input{width:320px;margin: 5px 0px 0px 10px;}
+
+/* 委托支付收款开户行 */
+.loan_entrust_pay_receipt_deposit_div{margin:0px 0px 0px -182px}
+.loan_entrust_pay_receipt_deposit_div label{margin-top:10px}
+.loan_entrust_pay_receipt_deposit_div input{width:320px;margin: 5px 0px 0px 0px;}
 
 
