@@ -17,9 +17,25 @@ table tfoot tr td{text-align:right;padding-right:20px}
 
 .ac_btn{background:#fff;padding:5px;width:200px;margin: -50px 0px 0px 980px;}
 .modal{top:0px;display:none;position:fixed;z-index:1;left:auto;right:auto;width:1180px;height:795px;overflow:auto;background-color:#000;background-color:rgba(0,0,0,0.4)}
-.modal-content{background-color:#fefefe;margin:5% auto;padding:20px;border:1px solid #888;width:60%;height:600px}
+.modal-content{overflow-y:auto;background-color:#fefefe;margin:5% auto;padding:20px;border:1px solid #888;width:70%;height:600px}
 .close{margin-right:5px;color:#999999;float:right;font-size:28px;font-weight:bold}
 .close:hover,.close:focus{color:black;text-decoration:none;cursor:pointer}
+
+.modal-content::-webkit-scrollbar {
+ width: 2px;
+}
+ .modal-content::-webkit-scrollbar-track {
+ background-color:#7ed0ff;
+ -webkit-border-radius: 1em;
+ -moz-border-radius: 1em;
+ border-radius:1em;
+}
+ .modal-content::-webkit-scrollbar-thumb {
+ background-color:#00a2ff;
+ -webkit-border-radius: 1em;
+ -moz-border-radius: 1em;
+ border-radius:1em;
+}
 
 .smart-green{margin-left:auto;margin-right:auto;max-width:500px;padding:30px 30px 20px 30px;font:12px Arial,Helvetica,sans-serif;color:#666;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px}
 .smart-green h1{font:24px "Trebuchet MS",Arial,Helvetica,sans-serif;padding:20px 0 20px 40px;display:block;margin:-30px -30px 10px -30px;color:#FFF;background:#9dc45f;text-shadow:1px 1px 1px #949494;border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;border-bottom:1px solid #89af4c}
