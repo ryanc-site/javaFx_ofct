@@ -11,6 +11,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import site.ryanc.ofc.tool.Main;
 import site.ryanc.ofc.tool.common.utils.HtmlUtil;
 import site.ryanc.ofc.tool.model.ofct.LoanInfo;
@@ -36,7 +37,7 @@ public class CRCB_App {
         dataFilePath = CRCB_App.class.getResource("/").getPath() + "db/p_customer.db";
     }
 
-    private static Map<String, String> templateMap = new HashMap<String, String>() {{
+    private static Map<String, String> template_base_Map = new HashMap<String, String>() {{
         put("loan_a.docx", "1档案封面.docx");
         put("loan_b.docx", "2个人借款申请书.docx");
         put("loan_c.docx", "3夫妻双方同意借款意见书.docx");
@@ -45,6 +46,9 @@ public class CRCB_App {
         put("loan_f.docx", "6信贷业务审议会议纪要.docx");
         put("loan_g.docx", "7贷款管理责任状.docx");
         put("loan_h.docx", "8首次检查报告单.docx");
+    }};
+
+    private static Map<String,String> template_zizhu_map = new HashMap<String,String>(){{
         put("self_pay_loan.docx", "自主支付监控联系单.docx");
     }};
 
@@ -237,8 +241,23 @@ public class CRCB_App {
         if (null == loanInfo || null == p_customer) {
             throw new Exception("贷款信息不存在！");
         }
+        Map<String,String> replaceFileMap = new HashMap<>();
+        replaceFileMap.putAll(template_base_Map);
+        // 贷款方式 - 对应文件列表
+        if(loanInfo.getLoan_mode() == 1){
+            replaceFileMap.putAll(template_zizhu_map);
+        }else if(loanInfo.getLoan_mode() == 2){
+            // todo 加入 循环 对应的文件列表
+        }else if(loanInfo.getLoan_mode() == 3){
+            // todo 加入 特色产品 对应的文件列表
+        }
 
-        Set<Map.Entry<String, String>> entries = templateMap.entrySet();
+        // 支付方式对应文件列表
+        if(loanInfo.getLoan_pay_mode() == 2){
+            // todo 加入 委托支付 对应文件列表
+        }
+
+        Set<Map.Entry<String, String>> entries = replaceFileMap.entrySet();
         for (Map.Entry<String, String> entry : entries) {
             // 获取模板文件
             String templatePath_A = Main.class.getResource("/").getPath() + "/template/" + entry.getKey();
@@ -252,40 +271,6 @@ public class CRCB_App {
             Iterator<XWPFTable> it = doc.getTablesIterator();
             //表格内容替换添加
             Map<String, Object> replaceMap = createParaParamsMap(loanInfo, p_customer);
-//            // 替换文档中段落的占位符
-//            ReplaceUtil.replaceInPara(doc, replaceMap);
-//
-//
-//            while (it.hasNext()) {
-//                XWPFTable table = it.next();
-//                int rcount = table.getNumberOfRows();
-//                for (int i = 0; i < rcount; i++) {
-//                    XWPFTableRow row = table.getRow(i);
-//                    List<XWPFTableCell> cells = row.getTableCells();
-//                    for (XWPFTableCell cell : cells) {
-//                        String cell_value = cell.getTextRecursively();
-//                        for (Map.Entry<String, Object> e : replaceMap.entrySet()) {
-//                            if (cell_value.contains(e.getKey())) {
-//                                cell_value = cell_value.replace(e.getKey(), ((String) e.getValue()));
-//                            }
-//                        }
-////                        cell.removeParagraph(0);
-//                        List<XWPFParagraph> paragraphs = cell.getParagraphs();
-//                        if (paragraphs.size() <= 1) {
-//                            cell.removeParagraph(0);
-//                        } else {
-//                            for (int i1 = 0; i1 < paragraphs.size(); i1++) {
-//                                try {
-//                                    cell.removeParagraph(i1);
-//                                } catch (Exception e) {
-//                                    continue;
-//                                }
-//                            }
-//                        }
-//                        cell.setText(cell_value);
-//                    }
-//                }
-//            }
             XWPFDocument targetDoc = null;
             try {
                 targetDoc = WordExportUtil.exportWord07(templatePath_A, replaceMap);
@@ -305,7 +290,6 @@ public class CRCB_App {
             HtmlUtil.closeStream(in, targetOS_A);
             log.info("file handl successfully.result file in  =====>" + targetPath_A + " )");
         }
-
     }
 
     /**
@@ -340,9 +324,26 @@ public class CRCB_App {
         map.put("-zh-dk-zhth", loanInfo.getLoan_main_contractno());
         map.put("-zh-dk-chth", loanInfo.getLoan_sub_contractno());
         map.put("-zh-dk-htr", loanInfo.getLoan_contract_date());
+        // 保证信息
         map.put("-zh-dk-bzr-xm", loanInfo.getLoan_assure_person());
         map.put("-dj-dk-bzr-xb", display_gender(Integer.parseInt(loanInfo.getLoan_assure_person_gender())));
         map.put("-dj-dk-bzr-jzdz", loanInfo.getLoan_person_address());
+        map.put("-dj-dk-bzr-sfz", loanInfo.getLoan_person_id());
+
+        // 贷款方式：循环方式 ==> 附加项
+        map.put("-dj-dk-bcqsrq", loanInfo.getLoan_this_start_date());
+        map.put("-dj-dk-bczzrq", loanInfo.getLoan_this_end_date());
+        map.put("-dj-dk-bcjkys", loanInfo.getLoan_this_months());
+        // 贷款方式：特色产品 ==> 附加项
+        map.put("-dj-dk-stcp", loanInfo.getLoan_special_prod_type());
+        map.put("-dj-dkr-khlx", loanInfo.getLoan_borrower_type());
+        // 支付方式：委托 ==> 附加项
+        map.put("-dj-dk-wt-rq", loanInfo.getLoan_entrust_pay_date());
+        map.put("-dj-dk-wt-je", loanInfo.getLoan_entrust_pay_amount());
+        map.put("-dj-dk-wt-skdw", loanInfo.getLoan_entrust_pay_payee());
+        map.put("-dj-dk-wt-skzh", loanInfo.getLoan_entrust_pay_receipt_account());
+        map.put("-dj-dk-wt-khh", loanInfo.getLoan_entrust_pay_receipt_deposit());
+
         map.put("-zh-dk-yll", loanInfo.getLoan_m_rate());
         map.put("-dj-dk-zffs", display_Loan_pay_mode(loanInfo.getLoan_pay_mode()));
         map.put("-zh-dk-lljd", loanInfo.getLoan_rate_plus_point());
@@ -351,7 +352,7 @@ public class CRCB_App {
         map.put("-zh-dk-dshrs", String.valueOf(loanInfo.getLoan_review_person_num()));
         map.put("-zh-dk-yhkh", loanInfo.getLoan_person_carno());
         map.put("-dj-dk-jkr-csrq", displayBirthDate(customerInfo.getP_id()));
-        map.put("-dj-dk-bzr-sfz", "652201199304014016");
+
         return map;
     }
 
