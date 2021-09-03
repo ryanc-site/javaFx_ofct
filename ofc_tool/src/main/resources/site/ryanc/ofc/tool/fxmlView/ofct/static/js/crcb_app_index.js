@@ -25,8 +25,8 @@ function left_menu_click(bussinessType,ele){
                 document.getElementById("loan_mgr_div").style.display = "block";
                 document.getElementById("customer_mgr_div_ent").style.display = "none";
                 document.getElementById("customer_mgr_div_person").style.display = "none";
-                var loanStr = app.queryLoanInfos();
-                // var loanStr = "[{\"ctime\":1630157214003,\"id\":\"17b8cf11133\",\"loan_amount_lowcase\":13000,\"loan_amount_upcase\":\"壹万叁仟元\",\"loan_apply_time\":\"2021-9-28\",\"loan_approve_time\":\"2021-10-10\",\"loan_assure_person\":\"比伯\",\"loan_assure_person_gender\":\"1\",\"loan_assure_type\":2,\"loan_contract_date\":\"2021-9-30\",\"loan_customer_type\":1,\"loan_end_date\":\"2022年4月28日\",\"loan_for_use\":\"买iphone13\",\"loan_m_rate\":\"6.5%\",\"loan_main_contractno\":\"ht-202108281\",\"loan_mode\":1,\"loan_pay_mode\":1,\"loan_person_address\":\"北京簋街\",\"loan_person_carno\":\"6228888888888888888\",\"loan_rate_plus_point\":\"1.0%\",\"loan_repay_mode\":1,\"loan_repay_person\":\"贾斯汀\",\"loan_repay_src\":\"拾荒\",\"loan_review_person_num\":5,\"loan_start_date\":\"2021年10月28日\",\"loan_sub_contractno\":\"20210828202031\",\"loan_term\":6,\"loan_total_credit_amount\":13000}]"
+//                var loanStr = app.queryLoanInfos();
+                 var loanStr = "[{\"ctime\":1630157214003,\"id\":\"17b8cf11133\",\"loan_amount_lowcase\":13000,\"loan_amount_upcase\":\"壹万叁仟元\",\"loan_apply_time\":\"2021-9-28\",\"loan_approve_time\":\"2021-10-10\",\"loan_assure_person\":\"比伯\",\"loan_assure_person_gender\":\"1\",\"loan_assure_type\":2,\"loan_contract_date\":\"2021-9-30\",\"loan_customer_type\":1,\"loan_end_date\":\"2022年4月28日\",\"loan_for_use\":\"买iphone13\",\"loan_m_rate\":\"6.5%\",\"loan_main_contractno\":\"ht-202108281\",\"loan_mode\":1,\"loan_pay_mode\":1,\"loan_person_address\":\"北京簋街\",\"loan_person_carno\":\"6228888888888888888\",\"loan_rate_plus_point\":\"1.0%\",\"loan_repay_mode\":1,\"loan_repay_person\":\"贾斯汀\",\"loan_repay_src\":\"拾荒\",\"loan_review_person_num\":5,\"loan_start_date\":\"2021年10月28日\",\"loan_sub_contractno\":\"20210828202031\",\"loan_term\":6,\"loan_total_credit_amount\":13000}]"
                 displayLoanInfos(loanStr);
                 break;
             case 'report':
@@ -69,6 +69,11 @@ function hide_mask_layer(businessType){
     document.getElementById('customer_mgr_Form_ent').style.display = "none";
     document.getElementById('customer_mgr_Form_person').style.display = "none";
     document.getElementById('loan_mgr_Form').style.display = "none";
+    $('#loan_form_info').hide();
+    $('#loan_other_info').hide();
+    $('#other_loan_mode_2').hide();
+    $('#other_loan_mode_3').hide();
+    $('#other_loan_pay_mode_2').hide();
 }
 
 // 转义 - 性别
