@@ -1,7 +1,6 @@
 @echo off
 set service_name="ryanc-site"
-echo --------------------------------【start.bat】-------------------------------->>bat.log>>bat.log
-
+echo --------------------------------【start.bat】-------------------------------->>bat.log
 :check
 :: 判断本机当前用户啊下进程标题为 "ryanc-site-1.0"的进程是否存在
 echo %date:~0,4%-%date:~5,2%-%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2%----【%service_name%】----Verifying service activity...>>bat.log
